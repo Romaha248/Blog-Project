@@ -12,9 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from os import getenv
-from dotenv import load_dotenv
 
-load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = getenv("SECRET_KEY")
+SECRET_KEY = "django-insecure-97h_8f6mjc-yx%i-z&d*anqj)nes*gvuj1g3g8yt+5xzpg4(!5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv("IS_DEVELOPMENT", True)
 
-ALLOWED_HOSTS = [getenv("APP_HOST", "127.0.0.1")]
+ALLOWED_HOSTS = [getenv("APP_HOST")]
 
 
 # Application definition
@@ -79,12 +77,8 @@ WSGI_APPLICATION = "BLOG.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "blogi",#blogi
-        "PASSWORD": "ShadowLirton76",#ShadowLirton76
-        "HOST": "blogi.cfaw4uykkfzf.eu-north-1.rds.amazonaws.com",#blogi.cfaw4uykkfzf.eu-north-1.rds.amazonaws.com
-        "PORT": "5432",#5432
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
